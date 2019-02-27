@@ -33,11 +33,12 @@ def getSourceASfromASPath(aspathstring):
 
 def lineToMysql(oneline):
     global sqlcounter
-    status,srcprefixes,aspath,stuff1,stuff2,stuff3,stuff4,communities,collector,timestamp,stuff5 = oneline.split('|')
+    # TYPE|SUBNETS|AS_PATH|NEXT_HOP|ORIGIN|ATOMIC_AGGREGATE|AGGREGATOR|COMMUNITIES|SOURCE|TIMESTAMP|ASN 32 BIT
+    (adv_type,subnets,aspath,next_hop,origin,atomic_aggregate,aggregator,communities,source,timestamp,asn32bit) = oneline.split('|')
     sourceasn = getSourceASfromASPath(aspath)
     ts = int(timestamp)
     eventtime = datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    prefixes = srcprefixes.split(' ')
+    prefixes = subnets.split(' ')
 
     for prefix in prefixes:
         sqlinsert = """
