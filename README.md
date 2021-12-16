@@ -20,7 +20,7 @@ create database mrtdb;
 GRANT ALL PRIVILEGES ON mrtdb.* TO 'mrt'@'localhost';
 FLUSH PRIVILEGES;
 use mrtdb;
-create table mrt2mysql (eventtime date, prefix varchar(255), aspath varchar(255), sourceasn int);
+create table mrt2mysql (eventtime datetime, prefix varchar(255), aspath varchar(255), sourceasn int);
 ```
 
 
