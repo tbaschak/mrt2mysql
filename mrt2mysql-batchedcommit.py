@@ -42,7 +42,7 @@ def lineToMysql(oneline):
 
     for prefix in prefixes:
         sqlinsert = """
-INSERT INTO mrt2mysql VALUES (NULL, '%s', '%s', '%s', %d)
+INSERT INTO mrt2mysql VALUES ('%s', '%s', '%s', %d)
         """ % (eventtime, prefix, aspath, sourceasn)
         #print sqlinsert
         conn.ping(reconnect=True)
