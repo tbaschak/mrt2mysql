@@ -12,4 +12,15 @@ for as in `cat ca-asn-latest.txt`; do
 done
 ```
 
+Mysql basic config (edit the .py you use to use these values as well)
+
+```mysql
+create user 'mrt'@'localhost' IDENTIFIED BY 'pw';
+create database mrtdb;
+GRANT ALL PRIVILEGES ON mrtdb.* TO 'mrt'@'localhost';
+FLUSH PRIVILEGES;
+use mrtdb;
+create table mrt2mysql (eventtime time, prefix varchar(255), aspath varchar(255), sourceasn int);
+```
+
 
